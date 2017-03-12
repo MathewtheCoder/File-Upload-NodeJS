@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>File upload Node.</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+      <header>  
+        <h1>ENoticeBoard</h1>
+
+      </header>
+      <main>
+      <form id="uploadForm"
+          enctype="multipart/form-data"
+          action="/api/photo"
+          method="post">
+      <div class="fileUpload btn btn-primary">
+      <span>Upload</span>
+      <input type="file" name="userPhoto" class="upload" />
+      </div>    
+      <!-- <input type="file" name="userPhoto" /> -->
+      <input type="submit" value="Upload Image" name="submit">
+      <span id = "status"></span>
+    </form>
+    </main>
+  </body>
+ 
+  <!---Load scripts last to make load tym faster -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+  <script>
+  $(document).ready(function() {
+
+     $('#uploadForm').submit(function() {
+		 $("#status").empty().text("File is uploading...");
+
+        $(this).ajaxSubmit({
+
+            error: function(xhr) {
+		            status('Error: ' + xhr.status);
+            },
+
+            success: function(response) {
+					console.log(response)
+					$("#status").empty().text(response);
+            }
+	});
+
+	return false;
+    });    
+});
+  </script>
+</html>

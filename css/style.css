@@ -1,0 +1,41 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+header {
+	background: #607D8B;
+	/*position: fixed;*/
+}
+main {
+	padding: 15%;
+}
+h1 {
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	font-size: 32px;
+	font-family: Lato,sans-serif;
+}
+
+#uploadForm {
+	width: 50%;
+	margin: 0px auto;
+
+}
+
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+.fileUpload input.upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
